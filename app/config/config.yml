@@ -1,0 +1,209 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+    - { resource: services.yml }
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+parameters:
+    locale: en
+    app.path.product_images: /images
+
+framework:
+    #esi:             ~
+    translator:      { fallbacks: ["%locale%"] }
+    secret:          "%secret%"
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+        strict_requirements: ~
+    form:            ~
+    csrf_protection: ~
+    validation:      { enable_annotations: true }
+    #serializer:      { enable_annotations: true }
+    templating:
+        engines: ['twig']
+    default_locale:  "%locale%"
+    trusted_hosts:   ~
+    trusted_proxies: ~
+    session:
+        # http://symfony.com/doc/current/reference/configuration/framework.html#handler-id
+        handler_id:  session.handler.native_file
+        save_path:   "%kernel.root_dir%/../var/sessions/%kernel.environment%"
+    fragments:       ~
+    http_method_override: true
+    assets: ~
+    php_errors:
+        log: true
+
+# Twig Configuration
+twig:
+    debug:            "%kernel.debug%"
+    strict_variables: "%kernel.debug%"
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        driver:   pdo_mysql
+        host:     "%database_host%"
+        port:     "%database_port%"
+        dbname:   "%database_name%"
+        user:     "%database_user%"
+        password: "%database_password%"
+        charset:  UTF8
+        # if using pdo_sqlite as your database driver:
+        #   1. add the path in parameters.yml
+        #     e.g. database_path: "%kernel.root_dir%/../var/data/data.sqlite"
+        #   2. Uncomment database_path in parameters.yml.dist
+        #   3. Uncomment next line:
+        #path:     "%database_path%"
+
+    orm:
+        auto_generate_proxy_classes: "%kernel.debug%"
+        naming_strategy: doctrine.orm.naming_strategy.underscore
+        auto_mapping: true
+
+# Swiftmailer Configuration
+swiftmailer:
+    transport: "%mailer_transport%"
+    host:      "%mailer_host%"
+    username:  "%mailer_user%"
+    password:  "%mailer_password%"
+    spool:     { type: memory }
+
+fos_user:
+    db_driver: orm # other valid values are 'mongodb' and 'couchdb'
+    firewall_name: main
+    user_class: AppBundle\Entity\User
+    from_email:
+        address: you@example.com
+        sender_name: You
+
+easy_admin:
+    site_name: 'Socialize US'
+    formats:
+            date: 'd/m/Y'
+            time: 'H:i'
+            datetime: 'd/m/Y H:i:s'
+    entities:
+        User:
+            class: AppBundle\Entity\User
+            label: 'Users'
+            list:
+                title: "All the users"
+                fields: ['id', { property: 'username', label: 'Username' }, { property: 'email', type: 'email' }, { property: 'enabled', label: 'Enabled' }]
+            form:
+                title: 'Modify a user'
+                fields:
+                    - { type: 'group', label: 'Information about the user', css_class: 'col-sm-12', icon: 'user',
+                        help: 'Basic information', css_class: 'danger' }
+                    - { property: 'username', label: 'Pseudo' }
+                    - { property: 'email', type: 'email' }
+                    - { property: 'password', label: 'Mot de passe' }
+                    - { type: 'group', label: 'Complementary information', css_class: 'col-sm-12', icon: 'user',
+                        help: 'Add a role (Admin, Editor, User)', css_class: 'danger' }
+                    - { property: 'roles', label: 'Role' }
+
+        Event:
+            class: AppBundle\Entity\Event
+            label: 'Events'
+            list:
+                title: "All the events"
+                fields: ['id', { property: 'title', label: 'Title' }, { property: 'summary', label: 'Summary' }, { property: 'date', label: 'Date of the event', format: 'd/m/Y' }, { property: 'imageName', label: 'Image', type: 'image', base_path: '%app.path.product_images%' }, { property: 'hashtag', label: 'Hashtags'}]
+            form:
+                title: 'Modify an event'
+                fields:
+                    - { type: 'group', label: 'First Things First', css_class: 'col-sm-12', icon: 'user',
+                        help: "Let's begin", css_class: 'danger' }
+                    - { property: 'title', label: 'Title' }
+                    - { property: 'summary', label: 'Summary' }
+                    - { property: 'date', label: 'Date (of the event)', format: 'j/n/Y' }
+                    - { type: 'group', label: 'The main information : Article and links', css_class: 'col-sm-12', icon: 'user',
+                        help: 'Article, Link, Hashtag', css_class: 'danger' }
+                    - { property: 'article', label: 'Article', type: 'ckeditor' }
+                    - { property: 'link', label: 'link' }
+                    - { property: 'hashtag', label: 'Hashtags' }
+                    - { type: 'group', label: 'Here you can add a picture to the event', css_class: 'col-sm-12', icon: 'user',
+                        help: 'Picture', css_class: 'danger' }
+                    - { property: 'imageFile', label: 'Image',type: 'vich_image'}
+    design:
+            brand_color: '#1ABC9C'
+            color_scheme: 'light'
+            menu:
+                - { entity: 'Event', icon: 'tags' }
+                - { entity: 'User', icon: 'users' }
+    list:
+        actions:
+            - { name: 'show', icon: 'search' }
+            - { name: 'edit', icon: 'pencil' }
+            - { name: 'delete', icon: 'remove' }
+
+
+#Gaufrette
+knp_gaufrette:
+    stream_wrapper: ~
+
+    adapters:
+        image_adapter:
+            local:
+                directory: '%kernel.root_dir%/../web/images'
+
+    filesystems:
+            image_fs:
+                adapter:    image_adapter
+
+#Vich
+vich_uploader:
+    db_driver: orm
+    storage:   gaufrette
+
+    mappings:
+        image:
+            uri_prefix:         '%app.path.product_images%'
+            upload_destination: image_fs
+
+#LiipImagine
+liip_imagine:
+    resolvers:
+       default:
+          web_path:
+              web_root: "%kernel.root_dir%/../web"
+              cache_prefix: "cache"
+    loaders:
+        default:
+            filesystem:
+                data_root: "%kernel.root_dir%/../web/"
+    driver:   gd
+    cache:    default
+    data_loader: default
+    default_image: null
+    controller:
+        filter_action:          liip_imagine.controller:filterAction
+        filter_runtime_action:  liip_imagine.controller:filterRuntimeAction
+    filter_sets:
+        cache: ~
+        thumb_42x42:
+            quality: 100
+            filters:
+                thumbnail: { size: [42, 42], mode: outbound, allow_upscale: true }
+
+ivory_ck_editor:
+    default_config: my_custom_config    # Utiliser par defaut la configuration my_custom_config
+    configs:
+        my_custom_config:
+            language: %locale%
+            toolbar: standard            # Charger la toolbar tollbar_1 (voir plus bas)
+            stylesSet: my_styles           # Chargement des styles personnalisables my_styles (voir plus bas)
+            uiColor: "#FCFCFC"           # Couleur de fond de l'interface
+            height: '600px'             # Hauteur par défaut
+            # Utiliser les styles css suivants dans le contenu de l'éditeur. Permet de voir le rendu en temps réeem
+            contentsCss:                ['bundles/app/css/style.css']
+    styles:         # Configuration des styles personnalisables
+        my_styles:
+            - { name: "Alerte Success", element: "div",  attributes: { class: "alert alert-success", role: "alert" }}
+            - { name: "Alerte Info", element: "div",  attributes: { class: "alert alert-info", role: "alert" }}
+            - { name: "Alerte Warning", element: "div",  attributes: { class: "alert alert-warning", role: "alert" }}
+            - { name: "Alerte Danger", element: "div",  attributes: { class: "alert alert-danger", role: "alert" }}
+            - { name: "Badge", element: "span",  attributes: { class: "badge" }}
+
+
+
