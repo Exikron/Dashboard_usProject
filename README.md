@@ -70,6 +70,18 @@ SocializeUS/
 ```
 Here is a sample of what this file should look like with a connexion in localhost
 ```
+parameters:
+    database_host: localhost # 127.0.0.1
+    database_port: null
+    database_name: socializeus # the name that will have your database
+    database_user: root
+    database_password: root 
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    secret: # your personal token 
+
 ```
 
 Route
