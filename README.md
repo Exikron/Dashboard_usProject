@@ -61,6 +61,17 @@ Pour créer un super admin :
 php bin/console fos:user:create adminuser --super-admin
 ```
 
+Note that in order to work properly it will create a database. Make sure your mandatory information to connect SQL server are correct in the parameters.yml
+```
+SocializeUS/
+├── app/
+│   ├── config
+│   │   ├── parameters.yml
+```
+Here is a sample of what this file should look like with a connexion in localhost
+```
+```
+
 Route
 --------------
 ```
