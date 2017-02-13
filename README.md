@@ -2,45 +2,9 @@ Dashboard - Socialize US - Install
 ========================
 
 Welcome to our group project
-Here's how to install the dashboard that will allow you to list/add/edit each of our event: 
+Here's how to install the dashboard that will allow you to list/add/edit each of our events: 
 
-What's included
---------------
-
-```
-SocializeUS/
-├── app/
-│   ├── config
-│   │   ├── config_dev.yml
-│   │   ├── config_prod.yml
-│   │   ├── config_test.yml
-│   │   ├── config.yml
-│   │   ├── parameters.yml
-│   │   ├── parameters.yml.dist
-│   │   ├── routing_dev.yml
-│   │   ├── routing.yml
-│   │   ├── security.yml
-│   │   ├── services.yml
-│   ├── ressources
-│   │   ├── views
-├── AppCache.php
-├── AppKernel.php
-├── autoload.php
-├── bin/
-│   ├── console
-│   └── symfony_requirements
-└── src/
-    ├── AppBundle
-    │   │   ├── AppBundle.php
-    │   │   ├── Controller
-    │   │   ├── Entity
-    │   │   │   │   ├── User.php
-    │   │   │   │   ├── Event.php
-└── tests
-└── var
-└── vendor
-└── web
-```
+##Install
 
 Install
 --------------
@@ -82,6 +46,44 @@ parameters:
     mailer_password: null
     secret: # your personal token 
 
+```
+
+What's included
+--------------
+
+```
+SocializeUS/
+├── app/
+│   ├── config
+│   │   ├── config_dev.yml
+│   │   ├── config_prod.yml
+│   │   ├── config_test.yml
+│   │   ├── config.yml
+│   │   ├── parameters.yml
+│   │   ├── parameters.yml.dist
+│   │   ├── routing_dev.yml
+│   │   ├── routing.yml
+│   │   ├── security.yml
+│   │   ├── services.yml
+│   ├── ressources
+│   │   ├── views
+├── AppCache.php
+├── AppKernel.php
+├── autoload.php
+├── bin/
+│   ├── console
+│   └── symfony_requirements
+└── src/
+    ├── AppBundle
+    │   │   ├── AppBundle.php
+    │   │   ├── Controller
+    │   │   ├── Entity
+    │   │   │   │   ├── User.php
+    │   │   │   │   ├── Event.php
+└── tests
+└── var
+└── vendor
+└── web
 ```
 
 Route
