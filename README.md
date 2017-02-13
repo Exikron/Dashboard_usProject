@@ -83,8 +83,8 @@ Route
    _profiler_exception_css             ANY        ANY      ANY    /_profiler/{token}/exception.css
    _twig_error_test                    ANY        ANY      ANY    /_error/{code}.{_format}
    homepage                            ANY        ANY      ANY    /
-   easyadmin                           ANY        ANY      ANY    /admin/
-   admin                               ANY        ANY      ANY    /admin/
+   easyadmin                           ANY        ANY      ANY    /dashboard/
+   admin                               ANY        ANY      ANY    /dashboard/
    fos_user_security_login             GET|POST   ANY      ANY    /login
    fos_user_security_check             POST       ANY      ANY    /login_check
    fos_user_security_logout            GET|POST   ANY      ANY    /logout
@@ -104,6 +104,5 @@ Route
    fos_user_group_show                 GET        ANY      ANY    /group/{groupName}
    fos_user_group_edit                 GET|POST   ANY      ANY    /group/{groupName}/edit
    fos_user_group_delete               GET        ANY      ANY    /group/{groupName}/delete
-   ranking                             ANY        ANY      ANY    /ranking
   ----------------------------------- ---------- -------- ------ -----------------------------------
 ```
