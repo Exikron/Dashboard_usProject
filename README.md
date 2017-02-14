@@ -22,7 +22,9 @@ If you want to create an admin user directly from the CLI :
 ```
 php bin/console fos:user:create adminuser --super-admin
 ```
-Otherwhise just go to /register
+Otherwhise just go to ```/register```
+Finnaly, in order to access to the dashboard simply add ```/dashboard``` in the url parameter. 
+
 
 Note that in order to work properly it will create a database. Make sure your mandatory information to connect SQL server are correct in the parameters.yml
 ```
