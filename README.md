@@ -1,8 +1,8 @@
 Dashboard - Socialize US - Install
 ========================
 
-Welcome to our group project
-Here's how to install the dashboard that will allow you to list/add/edit each of our events: 
+Welcome to our group project. 
+Here is how to install the dashboard that will allow you to list/add/edit each of our events: 
 
 Install
 --------------
@@ -18,10 +18,11 @@ php bin/console doctrine:schema:update --dump-sql --force
 
 php bin/console server:run
 ```
-If you want to create an admin with the CLI :
+If you want to create an admin user directly from the CLI :
 ```
 php bin/console fos:user:create adminuser --super-admin
 ```
+Otherwhise just go to /register
 
 Note that in order to work properly it will create a database. Make sure your mandatory information to connect SQL server are correct in the parameters.yml
 ```
