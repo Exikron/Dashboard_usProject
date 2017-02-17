@@ -49,7 +49,7 @@ parameters:
 
 ```
 
-What's included
+What is included
 --------------
 
 ```
