@@ -2,7 +2,7 @@ Dashboard - Socialize US - Install
 ========================
 
 Welcome to our group project. 
-Here is how to install the dashboard that will allow you to list/add/edit each of our events: 
+Here is how to install the dashboard that will allow you to list/add/edit and delete each of our events: 
 
 Install
 --------------
