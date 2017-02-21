@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
             new Liip\ImagineBundle\LiipImagineBundle(),
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
+            new Endroid\Twitter\Bundle\EndroidTwitterBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

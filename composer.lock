@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "57207e60b79b90221b90f97b3c321358",
-    "content-hash": "348aee8ca18df1afb10b8facd929b8a2",
+    "hash": "2b60cede380c8e8686fe05ecd3714a6e",
+    "content-hash": "40a4b724aa2e733e933066d6d65501a6",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -887,6 +887,60 @@
             "time": "2015-12-06 13:20:24"
         },
         {
+            "name": "endroid/twitter",
+            "version": "1.3.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/endroid/Twitter.git",
+                "reference": "6905bd4eacb8bd346377dbce66b8c4cb99b9839c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/endroid/Twitter/zipball/6905bd4eacb8bd346377dbce66b8c4cb99b9839c",
+                "reference": "6905bd4eacb8bd346377dbce66b8c4cb99b9839c",
+                "shasum": ""
+            },
+            "require": {
+                "kriswallsmith/buzz": "~0.10",
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.0|^5.0",
+                "symfony/http-foundation": "^2.3|^3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Endroid\\Twitter\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeroen van den Enden",
+                    "email": "info@endroid.nl",
+                    "homepage": "http://endroid.nl/"
+                }
+            ],
+            "description": "Endroid Twitter",
+            "homepage": "https://github.com/endroid/Twitter",
+            "keywords": [
+                "bundle",
+                "endroid",
+                "symfony",
+                "twitter"
+            ],
+            "time": "2017-01-01 20:52:29"
+        },
+        {
             "name": "friendsofsymfony/user-bundle",
             "version": "dev-master",
             "source": {
@@ -1398,6 +1452,54 @@
                 "media"
             ],
             "time": "2016-01-16 00:12:11"
+        },
+        {
+            "name": "kriswallsmith/buzz",
+            "version": "v0.15",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kriswallsmith/Buzz.git",
+                "reference": "d4041666c3ffb379af02a92dabe81c904b35fab8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kriswallsmith/Buzz/zipball/d4041666c3ffb379af02a92dabe81c904b35fab8",
+                "reference": "d4041666c3ffb379af02a92dabe81c904b35fab8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "suggest": {
+                "ext-curl": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Buzz": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kris Wallsmith",
+                    "email": "kris.wallsmith@gmail.com",
+                    "homepage": "http://kriswallsmith.net/"
+                }
+            ],
+            "description": "Lightweight HTTP client",
+            "homepage": "https://github.com/kriswallsmith/Buzz",
+            "keywords": [
+                "curl",
+                "http client"
+            ],
+            "time": "2015-06-25 17:26:56"
         },
         {
             "name": "liip/imagine-bundle",

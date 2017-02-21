@@ -85,24 +85,6 @@ easy_admin:
             time: 'H:i'
             datetime: 'd/m/Y H:i:s'
     entities:
-        User:
-            class: AppBundle\Entity\User
-            label: 'Users'
-            list:
-                title: "All the users"
-                fields: ['id', { property: 'username', label: 'Username' }, { property: 'email', type: 'email' }, { property: 'enabled', label: 'Enabled' }]
-            form:
-                title: 'Modify a user'
-                fields:
-                    - { type: 'group', label: 'Information about the user', css_class: 'col-sm-12', icon: 'user',
-                        help: 'Basic information', css_class: 'danger' }
-                    - { property: 'username', label: 'Pseudo' }
-                    - { property: 'email', type: 'email' }
-                    - { property: 'password', label: 'Mot de passe' }
-                    - { type: 'group', label: 'Complementary information', css_class: 'col-sm-12', icon: 'user',
-                        help: 'Add a role (Admin, Editor, User)', css_class: 'danger' }
-                    - { property: 'roles', label: 'Role' }
-
         Event:
             class: AppBundle\Entity\Event
             label: 'Events'
@@ -125,9 +107,28 @@ easy_admin:
                     - { type: 'group', label: 'Here you can add a picture to the event', css_class: 'col-sm-12', icon: 'user',
                         help: 'Picture', css_class: 'danger' }
                     - { property: 'imageFile', label: 'Image',type: 'vich_image'}
+        User:
+            class: AppBundle\Entity\User
+            label: 'Users'
+            list:
+                title: "All the users"
+                fields: ['id', { property: 'username', label: 'Username' }, { property: 'email', type: 'email' }, { property: 'enabled', label: 'Enabled' }]
+            form:
+                title: 'Modify a user'
+                fields:
+                    - { type: 'group', label: 'Information about the user', css_class: 'col-sm-12', icon: 'user',
+                        help: 'Basic information', css_class: 'danger' }
+                    - { property: 'username', label: 'Pseudo' }
+                    - { property: 'email', type: 'email' }
+                    - { property: 'password', label: 'Mot de passe' }
+                    - { type: 'group', label: 'Complementary information', css_class: 'col-sm-12', icon: 'user',
+                        help: 'Add a role (Admin, Editor, User)', css_class: 'danger' }
+                    - { property: 'roles', label: 'Role' }
+
+
     design:
-            brand_color: '#1ABC9C'
-            color_scheme: 'light'
+            brand_color: '#333'
+            #color_scheme: 'light'
             menu:
                 - { entity: 'Event', icon: 'tags' }
                 - { entity: 'User', icon: 'users' }
@@ -206,4 +207,8 @@ ivory_ck_editor:
             - { name: "Badge", element: "span",  attributes: { class: "badge" }}
 
 
-
+endroid_twitter:
+    consumer_key: 'knuIaJa6zDaWeOG0w49auwbcT'
+    consumer_secret: 'KcjZV7sGNNgn3y63CwMuZTxOrQDpSwn2fbwMYE4PvRbHVxxRUe'
+    access_token: '2827136464-J0G3iqYnm2yBvOIjrBgyycX7VS4wwxzbAXSmbQv'
+    access_token_secret: 'x6ZX46J1IfPYjNB837IaKpNs4UTXR4SBt1lTp78RjThy2'
