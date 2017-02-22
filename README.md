@@ -4,7 +4,7 @@ Dashboard - Socialize US - Install
 Welcome to our school group project. 
 Here is how to install the dashboard that will allow you to list/add/edit and delete each of our events.
 
-The events will display on a specific view, reachable on another repository. The separation in two repository beetween our main site and this dashboard has for main purpose to keep clear, and to help you, install this without any issue.
+The events will display on a specific view, reachable on another repository -- https://github.com/mdrick/socialize-us. The separation in two repository beetween our main site and this dashboard has for main purpose to keep clear, and to help you, install this without any issue.
 
 Install
 --------------
